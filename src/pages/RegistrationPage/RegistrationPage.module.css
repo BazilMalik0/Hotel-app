@@ -1,0 +1,212 @@
+/* Container for the entire page, centering the form */
+.registrationPage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Use a very subtle, professional light background */
+  background-color: #f5f7fa;
+  padding: 20px;
+}
+
+/* Main registration form card */
+.registrationCard {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Title and Subtitle Styling */
+.formTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a2f50; /* Deep Blue from Header */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.formSubtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+}
+
+/* Form Layout and Input Styling */
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* 💡 Updated: Applied styles to input AND textarea for consistency */
+.inputField {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Ensure textarea doesn't overflow horizontally */
+  resize: vertical; /* Allow only vertical resizing for textarea */
+}
+
+.inputField:focus {
+  border-color: #1a2f50; /* Deep Blue focus border */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 47, 80, 0.1);
+}
+
+/* 🟥 Validation Error Styles 🟥 */
+.inputError {
+  border-color: #e74c3c !important; /* Red border for error */
+}
+
+.errorMessage {
+  color: #e74c3c; /* Red text for error message */
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+/* ------------------------------- */
+
+/* File input styling (Making file input look cleaner) */
+.fileInput {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #1a2f50;
+  cursor: pointer;
+}
+
+/* 🖼️ Logo Preview Styling 🖼️ */
+.logoPreviewContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.logoPreview {
+  /* Set specific size for the visible logo */
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.logoFileName {
+  font-size: 0.85rem;
+  color: #555;
+  /* This style is also used for showing file name without preview */
+}
+/* ------------------------------ */
+
+/* Submit Button Styling (Matching Login Button Design) */
+.submitButton {
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    #ffd700 0%,
+    #ffc400 100%
+  ); /* Gold Gradient */
+  color: #1a2f50; /* Dark Blue Text */
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.disabledButton {
+  color: red;
+  background: linear-gradient(135deg, #000000 0%, #494846 100%);
+  cursor: wait;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #ffc400 0%, #ffd700 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.disabledButton:hover {
+  color: red;
+  background: linear-gradient(135deg, #000000 0%, #494846 100%);
+}
+
+.loginText {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #1a2f50;
+  font-weight: 600;
+}
+
+.loginLink {
+  color: #ffb300;
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.loginLink:hover {
+  color: #ff9900;
+}
+
+.accountExistsMessage {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #e74c3c; /* same red as your error messages */
+  font-weight: 600;
+}
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .registrationCard {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  .formTitle {
+    font-size: 1.8rem;
+  }
+  .submitButton {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

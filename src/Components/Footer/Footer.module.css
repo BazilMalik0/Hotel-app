@@ -1,0 +1,59 @@
+/* src/components/Footer/Footer.module.css */
+
+.footer {
+  /* Blue/Navy gradient background */
+  background: linear-gradient(90deg, #a0522d 0%, #ffffff 100%);
+  /* Set text color to dark blue for visibility against light background */
+  color: #1a2f50;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  font-family: Arial, sans-serif;
+}
+
+.section {
+  flex: 1;
+  min-width: 280px;
+  margin: 15px;
+  line-height: 1.6;
+}
+
+.sectionTitle {
+  color: #2a2320;
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Used for simple text like the developer names and the email address */
+.text {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+/* Used specifically for lines with icons (location, phone) */
+.contactInfo {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+}
+
+.contactInfo span {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section {
+    margin: 20px 0;
+  }
+}

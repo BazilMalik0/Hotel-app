@@ -1,0 +1,48 @@
+/* src/components/Snackbar/Snackbar.module.css */
+
+.snackbar {
+  visibility: hidden; /* Hidden by default. */
+  min-width: 250px;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  text-align: center;
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px;
+  position: fixed; /* Fixed position */
+  z-index: 1000; /* High z-index */
+  left: 50%; /* Center horizontally */
+  bottom: 30px; /* Position at the bottom */
+  transform: translateX(-50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.show {
+  visibility: visible; /* Show the snackbar */
+  opacity: 1;
+}
+
+.snackbarMessage {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  cursor: pointer;
+  padding: 0 5px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}

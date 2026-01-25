@@ -1,0 +1,157 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.loginBox {
+  background: white;
+  padding: 35px;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1a2f50;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.inputGroup input {
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #1a2f50;
+  box-shadow: 0 0 5px rgba(26, 47, 80, 0.3);
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    135deg,
+    #ffd700 0%,
+    #ffc400 100%
+  ); /* Gold Gradient */
+  color: #1a2f50; /* Dark Blue Text */
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.loginBtn:hover {
+  background: linear-gradient(135deg, #ffc400 0%, #ffd700 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* FORGOT PASSWORD */
+.forgotPassword {
+  text-align: center;
+  margin-top: -10px;
+}
+
+.forgotPasswordLink {
+  color: #ffb300;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  text-decoration: underline;
+}
+
+/* SIGNUP TEXT */
+.signupText {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.signupLink {
+  color: #ffb300;
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.successMessage {
+  color: green;
+}
+/* Add this to your existing LoginPage.module.css */
+
+/* Keyframe for sliding the toast message from top to center */
+@keyframes slideInDown {
+  0% {
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Container for the toast message */
+.toastContainer {
+  position: fixed;
+  top: 20px; /* Distance from the top of the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 0);
+  z-index: 1000; /* Ensure it is above all other elements */
+  animation: slideInDown 0.9s ease-out forwards; /* Apply the animation */
+  pointer-events: none; /* Ignore mouse events */
+}
+
+/* Styling for the toast box content */
+.toastContent {
+  background-color: #4caf50; /* Green success color */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

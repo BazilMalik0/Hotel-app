@@ -1,0 +1,197 @@
+/* -------------------------------------------------------
+    BUTTON WRAPPER — ROW + WRAP + NO SCROLL
+------------------------------------------------------- */
+.NavBarCard {
+  display: flex;
+  align-items: center;
+  /* ⭐ UPDATED: Pushes BrandGroup (left) and AuthGroup (right) apart */
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  /* UPDATED: A professional, deep blue that complements the logo */
+  background: linear-gradient(90deg, #a0522d 0%, #ffffff 100%);
+  /* Set text color to dark blue for visibility against light background */
+  color: #1a2f50;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: slideDown 0.8s ease-out;
+}
+/* ⭐ NEW: Group for Logo and Title */
+.brandGroup {
+  display: flex;
+  align-items: center; /* Vertically center logo and title */
+  gap: 15px; /* Space between logo and title */
+}
+/* ⭐ NEW: Group for Registration/Login Links */
+.authGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+/* ⭐ NEW: Style for the links */
+.authLink {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.authLink:hover {
+  color: #ffd700; /* Gold hover color for registration link */
+}
+/* ⭐ NEW: Professional button style for Login */
+.loginButton {
+  background-color: #ffd700; /* Gold/Yellow background */
+  color: #1a2f50; /* Dark blue text */
+  font-weight: 700;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #ffd700;
+}
+.loginButton:hover {
+  background-color: #ffc400;
+  color: #1a2f50;
+  transform: translateY(-1px);
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+  animation: bounceIn 1s ease-out;
+}
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left; /* ⭐ UPDATED: Align left within the brandGroup */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #ffd700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  margin: 0; /* ⭐ NEW: Remove default margin for better vertical alignment */
+}
+/* Animations (No changes) */
+@keyframes slideDown {
+  /* ... (Animations remain unchanged) ... */
+}
+@keyframes bounceIn {
+  /* ... (Animations remain unchanged) ... */
+}
+@keyframes fadeInUp {
+  /* ... (Animations remain unchanged) ... */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .NavBarCard {
+    /* ⭐ UPDATED: Allow space between for wider screens, but stack on smaller screens */
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  /* ⭐ NEW: Center brand group on small screens */
+  .brandGroup {
+    justify-content: center;
+  }
+  /* ⭐ NEW: Center auth group on small screens */
+  .authGroup {
+    justify-content: center;
+    width: 100%;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .logo {
+    height: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .NavBarCard {
+    padding: 1rem 0.5rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .logo {
+    height: 40px;
+  }
+  .authLink {
+    font-size: 0.85rem;
+  }
+  .loginButton {
+    padding: 6px 12px;
+  }
+}
+.buttonGrid {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+/* -------------------------------------------------------
+    BUTTONS — Gradient + Motion Hover (Keeping existing button styles below the new NavBar styles)
+------------------------------------------------------- */
+.button {
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffffff, #fafafa, #f0f0f0);
+  color: #1e3c72;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.25s ease, background 0.35s ease;
+}
+.button:hover {
+  transform: translateY(-4px) scale(1.06);
+  background: linear-gradient(135deg, #e3f2ff, #eef6ff, #ffffff);
+  box-shadow: 0 6px 20px rgba(30, 60, 114, 0.25),
+    0 0 12px rgba(42, 82, 152, 0.35);
+}
+.button:active {
+  transform: scale(0.94);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+/* ⭐ NEW: Active button style for category selection */
+.button.active {
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(135deg, #ffd700, #ffc400); /* Gold highlight */
+  color: #1e3c72; /* Dark blue text */
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4), 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* -------------------------------------------------------
+    RESPONSIVE STYLES (Keeping existing media queries)
+------------------------------------------------------- */
+@media (max-width: 600px) {
+  .NavBarCard {
+    padding: 16px 20px;
+  }
+  /* .NavBarCard h1 is unused, assuming you meant .title */
+  .title {
+    font-size: 1.6rem;
+  }
+  .button {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 420px) {
+  .buttonGrid {
+    gap: 8px;
+  }
+  .button {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+}

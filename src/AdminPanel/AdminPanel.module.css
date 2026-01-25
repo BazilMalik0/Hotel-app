@@ -1,0 +1,75 @@
+/* AdminPanel.module.css */
+
+/* --- Overall Panel Container (Side-by-Side Layout) --- */
+.wrapper {
+  /* ⭐ Enables side-by-side layout */
+  display: flex;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Background styling */
+  background-color: #f4f7f9;
+  background-image: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+  background-size: 25px 25px;
+  border-left: 10px solid #a0522d;
+  border-right: 5px solid #ffffff;
+}
+.divider {
+  padding: 0%;
+  display: flex;
+}
+/* --- Sidebar Area (Left) --- */
+
+/* --- Dashboard Area (Right/Main Content) --- */
+.dashboardArea {
+  /* ⭐ Allows dashboard content to take up all remaining space */
+  flex-grow: 1;
+  /* Add padding to the content area itself */
+  padding: 30px 40px;
+}
+
+/* --- Title Styling (Applied to the H1 inside dashboardArea) --- */
+.title {
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+/* --- Individual Section Card Styling (Used for CRUD pages) --- */
+.section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.section h2 {
+  color: #3b82f6;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-left: 4px solid #3b82f6;
+  padding-left: 10px;
+}
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.rightContent {
+  flex: 1;
+  padding: 20px;
+  background: #f7f7f7;
+}

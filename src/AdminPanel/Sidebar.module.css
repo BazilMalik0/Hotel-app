@@ -1,0 +1,226 @@
+/* src/components/Sidebar/Sidebar.module.css */
+
+/* --- Base Sidebar Styles --- */
+.adminSidebar {
+  width: 250px; /* Expanded width */
+  background: linear-gradient(90deg, #a0522d 0%, #ffffff 100%);
+  color: #f0f2f5;
+  padding: 20px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  /* ⭐ START of structural changes for scrolling: */
+  display: flex; /* Enable flex container for internal scrolling */
+  flex-direction: column;
+  height: 100vh; /* Set height to full viewport height for scrolling */
+  /* ⭐ END of structural changes for scrolling */
+  transition: width 0.3s ease-in-out;
+  z-index: 999;
+  overflow: inherit; /* Allow collapse button to overflow */
+}
+
+/* --- Collapsed State --- */
+.collapsed {
+  width: 70px; /* ⭐ Updated width for collapse */
+}
+
+/* --- Mobile Toggle Button (Visible only on small screens) --- */
+.sidebarToggleBtn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background-color: #34495e;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* --- Collapse Button --- */
+.sidebarCollapseBtn {
+  position: absolute;
+  top: 3px; /* ⭐ Updated top position */
+  right: 5px; /* Fully inside sidebar */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s, background 0.3s;
+  z-index: 10000; /* ⭐ Very high z-index */
+  font-size: 1.3rem;
+}
+.sidebarCollapseBtn:hover {
+  background: grey;
+}
+.collapsed .sidebarCollapseBtn {
+  right: 5px; /* Keep button inside when collapsed (if using 'right: 5px') */
+  /* If you want it outside, revert to right: -15px or similar */
+}
+
+/* --- Profile Section --- */
+.sidebarProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px; /* ⭐ Consistent padding */
+  border-bottom: 1px solid #3e506e;
+  margin-bottom: 20px; /* ⭐ Increased margin */
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  background-color: #ffc400; /* Yellow accent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 3px solid #3498db; /* ⭐ Added border */
+  margin-top: 8px; /* ⭐ Added top margin */
+}
+
+/* Placeholder style */
+.avatarPlaceholder {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a2f50;
+}
+
+.profileName {
+  color: black;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profileId {
+  display: block;
+  font-size: 0.8rem;
+  color: black;
+  margin-top: 5px;
+}
+
+/* Hide text when collapsed */
+.collapsed .profileName,
+.collapsed .profileId {
+  display: none;
+}
+.collapsed .profileAvatar {
+  width: 40px;
+  height: 40px;
+  margin-left: -8px;
+  margin-bottom: 5px;
+}
+
+/* --- Navigation --- */
+.sidebarNav {
+  flex-grow: 1; /* ⭐ Take remaining vertical space */
+  overflow-y: auto; /* ⭐ Enable vertical scrolling */
+  padding-bottom: 20px; /* ⭐ Added padding to avoid cutoff */
+}
+
+/* Scrollbar Customization */
+.sidebarNav::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebarNav::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+.sidebarNav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebarNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
+}
+
+.navItem:hover {
+  background-color: #34495e; /* ⭐ Darker background on hover */
+}
+
+.navIcon {
+  font-size: 1.1rem; /* ⭐ Fixed icon size */
+  flex-shrink: 0; /* Prevent shrinking when collapsed */
+  width: 25px; /* Keep consistent spacing area */
+  text-align: center;
+  margin-right: 0; /* Default collapsed state spacing */
+}
+
+/* Spacing adjustment for expanded state */
+.adminSidebar:not(.collapsed) .navIcon {
+  margin-right: 15px; /* Restore spacing when expanded */
+}
+
+/* Active State */
+.active {
+  background-color: #34495e !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+}
+
+/* Hide Text When Collapsed */
+.collapsed .navItem {
+  justify-content: center;
+}
+.collapsed .navItem span:last-child {
+  display: none; /* Hide the link name */
+}
+
+/* --- Media Queries (Mobile responsiveness) --- */
+@media (max-width: 768px) {
+  /* Show the mobile toggle button */
+  .sidebarToggleBtn {
+    display: block;
+  }
+
+  /* Initially hide the sidebar off-screen */
+  .adminSidebar {
+    width: 250px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    height: 100vh; /* Ensure full screen height */
+  }
+
+  /* Show the sidebar when 'open' class is applied */
+  .open {
+    transform: translateX(0);
+  }
+
+  /* Hide the collapse button on mobile */
+  .sidebarCollapseBtn {
+    display: none;
+  }
+
+  /* Override collapsed state on mobile to show full menu */
+  .collapsed {
+    width: 250px;
+  }
+}
