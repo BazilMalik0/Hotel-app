@@ -155,3 +155,95 @@
   align-items: center;
   gap: 10px;
 }
+/* --- Professional Media Query Suite for Login --- */
+
+/* 1. Tablet and Small Laptops */
+@media (max-width: 768px) {
+  .loginBox {
+    max-width: 400px;
+    padding: 30px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
+
+/* 2. Mobile Devices (Optimization & iOS Form Fixes) */
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 15px;
+    align-items: flex-start; /* Better for shorter screens to allow scrolling */
+    padding-top: 60px; /* Space for the toast message if it appears */
+  }
+
+  .loginBox {
+    padding: 25px 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .form {
+    gap: 15px;
+  }
+
+  .inputGroup input {
+    padding: 10px;
+    /* Prevents automatic zoom-on-focus in iOS Safari */
+    font-size: 16px;
+  }
+
+  .loginBtn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  /* Adjust Toast for Mobile: Make it wider but with smaller text */
+  .toastContainer {
+    width: 90%;
+    top: 10px;
+  }
+
+  .toastContent {
+    padding: 12px 20px;
+    font-size: 14px;
+    justify-content: center;
+  }
+
+  /* Disable hover transform on touch to prevent "sticky" UI feel */
+  .loginBtn:hover {
+    transform: none;
+  }
+}
+
+/* 3. Small Screen / Foldable Optimization */
+@media (max-width: 350px) {
+  .loginBox {
+    padding: 20px 15px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .signupText,
+  .forgotPasswordLink {
+    font-size: 0.85rem;
+  }
+}
+
+/* 4. Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .loginBtn,
+  .toastContainer,
+  .inputGroup input {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

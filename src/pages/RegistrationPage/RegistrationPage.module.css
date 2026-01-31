@@ -63,7 +63,9 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   /* Ensure textarea doesn't overflow horizontally */
   resize: vertical; /* Allow only vertical resizing for textarea */
 }
@@ -138,7 +140,9 @@
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .disabledButton {
@@ -196,17 +200,88 @@
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
+/* --- Professional Media Query Suite --- */
+
+/* 1. Large Tablets and Small Laptops (Adjusting Card Breathability) */
+@media (max-width: 768px) {
   .registrationCard {
-    padding: 30px 20px;
-    margin: 10px;
+    padding: 30px;
+    max-width: 420px;
   }
+
   .formTitle {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
+}
+
+/* 2. Mobile Devices (Optimizing for vertical space and readability) */
+@media (max-width: 500px) {
+  .registrationPage {
+    padding: 15px; /* Reducing outer padding to give form more room */
+    align-items: flex-start; /* Better scrolling experience on short screens */
+  }
+
+  .registrationCard {
+    padding: 25px 20px;
+    border-radius: 10px; /* Slightly sharper corners for mobile */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow for mobile */
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .formSubtitle {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .registrationForm {
+    gap: 15px; /* Tighter gap for smaller screens */
+  }
+
+  .inputField {
+    padding: 10px 12px; /* Slightly smaller inputs */
+    font-size: 16px; /* 💡 Pro Tip: Prevents iOS zoom-on-focus (must be at least 16px) */
+  }
+
   .submitButton {
     font-size: 1rem;
-    padding: 12px;
+    padding: 14px;
+    margin-top: 10px;
+  }
+
+  /* Disable hover transformations on touch devices to prevent "sticky" hover states */
+  .submitButton:hover {
+    transform: none;
+  }
+}
+
+/* 3. Small Mobile / Foldable Devices */
+@media (max-width: 360px) {
+  .registrationCard {
+    padding: 20px 15px;
+  }
+
+  .formTitle {
+    font-size: 1.3rem;
+  }
+
+  .logoPreviewContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* 4. Support for High-Contrast / Reduced Motion (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  .registrationCard,
+  .submitButton,
+  .inputField {
+    animation: none !important;
+    transition: none !important;
   }
 }
